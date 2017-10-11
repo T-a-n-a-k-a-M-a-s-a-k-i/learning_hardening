@@ -1,0 +1,42 @@
+#####特定ユーザのみログイン許可#####
+###!!!!!要設定!!!!!###
+AllowUsers hogehoge fugafuga
+
+#####ssh version2に限定#####
+Protocol 2 
+
+#####バージョン2の公開鍵認証に限定#####
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+AuthorizedKeysFile      .ssh/authorized_keys
+
+RSAAuthentication no 
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+KerberosAuthentication no
+GSSAPIAuthentication no
+IgnoreRhosts yes
+HostbasedAuthentication no
+RhostsRSAAuthentication no
+
+#####rootログイン不可#####
+PermitRootLogin no
+
+#####転送不可#####
+X11Forwarding no
+AllowTCPForwarding no
+
+######root権限分離#####
+###"Bad yes/no argument"エラーが出る際はyes###
+UsePrivilegeSeparation sandbox
+
+######バナー表示不可#####
+Banner none
+
+#####その他#####
+Port 22
+SyslogFacility AUTHPRIV
+LoginGraceTime 30
+MaxAuthTries 3 
