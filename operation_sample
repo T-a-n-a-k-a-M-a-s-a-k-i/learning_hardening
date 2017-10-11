@@ -1,34 +1,18 @@
 # ユーザの消去
 ## ユーザの確認
-```
 cat /etc/passwd
-```
 ## ユーザの削除
-```
 userdel hogehoge
-```
 # パスワード変更
-```
 passwd hogehoge
-```
 # sudoersの編集
 ## エディタの変更
-```
 export EDITOR='/usr/bin/vim'
-```
 ## 専用コマンドによる編集
-```
 visudo
-```
 # rootで起動しているプロセスの確認
-```
 ps aux | grep root
-```
 # コネクションの確認
-```
 ss -antup
-```
 # suid, sgidの設定されているファイルを確認
-```
 find /usr/bin -user root -perm -4000 -print
-```
